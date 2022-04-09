@@ -64,6 +64,10 @@ function pickFinalWinner(counterA, counterB){ //user and computer victory counte
     return finalWinner;
 }
 
+function displayFinalWinner(finalWinner){
+    console.log("\n\n");
+    console.log("And the final winner was: " + finalWinner + "!!!");
+}
 
 
 let keepPlaying = true; 
@@ -98,8 +102,7 @@ while(keepPlaying){
     //outputs final victory
     finalWinner = pickFinalWinner(userVictories, computerVictories)
 
-    console.log("\n\n");
-    console.log("And the final winner was: " + finalWinner + "!!!");
+    displayFinalWinner(finalWinner);
  
     //confirm if they wanna play again
     keepPlaying = confirm("Do you wanna play again?");
