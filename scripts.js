@@ -12,8 +12,6 @@ function generateChoice() {
 
 }
 
-
-
 function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in that order
     
     let winner = "no one, it was a tie!"; // default
@@ -47,11 +45,15 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
 }
 
 function displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories) {
+    console.log("\n\n");
     console.log("You picked: " + userChoice);
     console.log("The computer picked: " + computerChoice);
+    console.log("\n\n");
     console.log("The winner of this round was: " + roundWinner);
+    console.log("\n\n");
     console.log("User victories: " + userVictories);
     console.log("Computer victories: " + computerVictories);
+    console.log("\n\n");
 }
 
 
@@ -62,6 +64,7 @@ function pickFinalWinner(counterA, counterB){ //user and computer victory counte
     
     return finalWinner;
 }
+
 
 
 let keepPlaying = true; 
