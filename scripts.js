@@ -67,6 +67,7 @@ function pickFinalWinner(counterA, counterB){ //user and computer victory counte
 function displayFinalWinner(finalWinner){
     console.log("\n\n");
     console.log("And the final winner was: " + finalWinner + "!!!");
+    alert("And the final winner was: " + finalWinner + "!!!");
 }
 
 
