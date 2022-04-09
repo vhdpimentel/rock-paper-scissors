@@ -1,7 +1,7 @@
 function displayInstructions(){
     console.clear();
     console.log("\n\n");
-    console.log("It's you against the computer. The first to get a best of 5 wins!")
+    console.log("It's you against the computer. The game goes up to a best of 5!")
 }
 
 
