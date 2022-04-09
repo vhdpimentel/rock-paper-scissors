@@ -108,6 +108,9 @@ function rockPaperScissors(){
         //confirm if they wanna play again
         keepPlaying = confirm("Do you wanna play again?");
     }
+    console.clear();
+    console.log("\n\n");
+    console.log("To start the game, type rockPaperScissors() below!");
 }
 
-console.log("Type rockPaperScissors() below!");
+console.log("To start the game, type rockPaperScissors() below!");
