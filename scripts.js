@@ -101,7 +101,7 @@ while(keepPlaying){
         displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
 }
     //outputs final victory
-    finalWinner = pickFinalWinner(userVictories, computerVictories)
+    finalWinner = pickFinalWinner(userVictories, computerVictories);
 
     displayFinalWinner(finalWinner);
  
