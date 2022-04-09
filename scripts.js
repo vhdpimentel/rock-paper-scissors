@@ -1,4 +1,31 @@
 /*
+    function pickWinner(choiceA, choiceB) {
+        if choiceA === "rock":
+            and choiceB === "rock":
+                roundWinner = "no one, it was a tie!";
+            and choiceB === "paper":
+                roundWinner = "computer";
+            and choiceB === "scissors":
+                roundWinner = "user";
+        
+        if choiceA === "paper":
+            and choiceB === "rock":
+                roundWinner = "user";
+            and choiceB === "paper":
+                roundWinner = "no one, it was a tie!";
+            and choiceB === "scissors":
+                roundWinner = "computer";
+        
+        if choiceA === "scissors":
+            and choiceB === "rock":
+                roundWinner = "computer";
+            and choiceB === "paper":
+                roundWinner = "user";
+            and choiceB === "scissors":
+                roundWinner = "no one, it was a tie!";
+
+    }
+
 
     the game will be played for a best of 5
     while no victory counter has reached 3: 
@@ -22,31 +49,7 @@
         
 
         both will be compared to choose the round winner:
-            let roundWinner;
-            if userChoice === "rock":
-                and computerChoice === "rock":
-                    do nothing;
-                and computerChoice === "paper":
-                    roundWinner = "computer";
-                and computerChoice === "scissors":
-                    roundWinner = "user";
-            
-            if userChoice === "paper":
-                and computerChoice === "rock":
-                    roundWinner = "user";
-                and computerChoice === "paper":
-                    do nothing;
-                and computerChoice === "scissors":
-                    roundWinner = "computer";
-            
-            if userChoice === "scissors":
-                and computerChoice === "rock":
-                    roundWinner = "computer";
-                and computerChoice === "paper":
-                    roundWinner = "user";
-                and computerChoice === "scissors":
-              
-                  do nothing;
+            let roundWinner = pickWinner;
 
 
             if (roundWinner === "user") {userVictories++;}
