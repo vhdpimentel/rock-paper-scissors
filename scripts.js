@@ -10,8 +10,8 @@ function generateChoice() {
 
 
 
-function pickWinner(choiceA, choiceB) {
-    let winner = "no one, try again!";
+function pickWinner(choiceA, choiceB) { //receives user and computer choices, in that order
+    let winner = "no one, it was a tie!";
     if(choiceA === "rock"){
         if (choiceB === "paper"){
             winner = "computer";
@@ -39,48 +39,50 @@ function pickWinner(choiceA, choiceB) {
     return winner;
 }
 
-function displayWinner(counterA, counterB){
+function displayWinner(counterA, counterB){ // receives user and computer victory counters, in that order
     let message = (counterA > counterB)? "the user has won!" :
         (counterB > counterA)? "the computer has won!" :
         "nobody wins :("
     
     return message;
 }
- /*    
+
+
+let keepPlaying = true; 
+while(keepPlaying){
+
     let userVictories = 0;
     let computerVictories = 0;
 
-    //the game will be played for a best of 5
+    //goes on for a best of 5
     while(userVictories < 3 && computerVictories < 3) {
-        //the user will make his choice: 
-        let userChoice = console.prompt("Choose rock, paper or scissors:");
+        //prompt for user's choice: 
+        let userChoice = prompt("Choose rock, paper or scissors:");
+        console.clear();
+        console.log("you picked: " + userChoice);
 
-        //the browser will come up with its own choice:
-        let computerChoice = generateChoice()
+        //make the computer's choice:
+        let computerChoice = generateChoice();
+        console.log("the computer picked: " +computerChoice);
  
 
-        //both will be compared to choose the round winner:
+        //choose the round winner:
         let roundWinner = pickWinner(userChoice, computerChoice);
 
-        if (roundWinner === "user") {userVictories++;}
-        else if (roundWinner === "computer") {computerVictories++;}
+        if (roundWinner === "user") 
+            {userVictories++;}
+        else if (roundWinner === "computer") 
+            {computerVictories++;}
         
         
-        //this round's victor will be declared
-        console.log("the winner of this round was: " + roundWinner);
-        console.log("user victories: " + userVictories);
-        console.log("computer victories: " + computerVictories);
+        //outputs this round's victor
+        console.log("The winner of this round was: " + roundWinner);
+        console.log("User victories: " + userVictories);
+        console.log("Computer victories: " + computerVictories);
 }
-    //final victory will be declared
-    winnerMessage = (userVictories === 3)? "the user has won!" :
-        (computerVictories === 3)? "the computer has won!" :
-        "nobody wins :("
+    //outputs final victory
+    winnerMessage = displayWinner(userVictories, computerVictories)
  
-    //the user will ble able to choose to play again
-        confirm if they wanna play again
-
- 
- all of the inputs and outputs will happen through the
- browser 
-    console, initially
-*/
+    //confirm if they wanna play again
+    keepPlaying = confirm("Do you wanna play again?");
+}
