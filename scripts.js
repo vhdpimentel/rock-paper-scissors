@@ -53,7 +53,6 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
     console.log("\n\n");
     console.log("User victories: " + userVictories);
     console.log("Computer victories: " + computerVictories);
-    console.log("\n\n");
 }
 
 
@@ -76,7 +75,7 @@ while(keepPlaying){
     //goes on for a best of 5
     while(userVictories < 3 && computerVictories < 3) {
         //prompt for user's choice: 
-        let userChoice = prompt("Choose rock, paper or scissors:");
+        let userChoice = prompt("Enter rock, paper or scissors: \n\n");
 
         console.clear();
 
@@ -99,6 +98,7 @@ while(keepPlaying){
     //outputs final victory
     finalWinner = pickFinalWinner(userVictories, computerVictories)
 
+    console.log("\n\n");
     console.log("And the final winner was: " + finalWinner + "!!!");
  
     //confirm if they wanna play again
