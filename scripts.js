@@ -1,4 +1,4 @@
-function displayStartMessage(){
+function displayInstructions(){
     console.clear();
     console.log("\n\n");
     console.log("It's you against the computer. The first to get a best of 5 wins!")
@@ -64,7 +64,7 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
 function pickFinalWinner(counterA, counterB){ //user and computer victory counters, in that order
     let finalWinner = (counterA > counterB)? "user" :
         (counterB > counterA)? "computer" :
-        "nobody :("
+        "nobody. I guess you quit early"
     
     return finalWinner;
 }
@@ -76,24 +76,24 @@ function displayFinalWinner(finalWinner){
 }
 
 function rockPaperScissors(){
-    displayStartMessage();
+    displayInstructions();
     let keepPlaying = true; 
-    while(keepPlaying){
+    let userChoice;
+    while(keepPlaying && (userChoice !== null)){
 
         let userVictories = 0;
         let computerVictories = 0;
 
         //goes on for a best of 5
-        while(userVictories < 3 && computerVictories < 3) {
+        while(userVictories < 3 && computerVictories < 3 && (userChoice !== null)) {
             //prompt for user's choice: 
-            let userChoice = prompt("Enter rock, paper or scissors: \n\n");
-
+            userChoice = prompt("Enter rock, paper or scissors: \n\n");
             console.clear();
+
 
             //make the computer's choice:
             let computerChoice = generateChoice();
     
-
             //choose the round winner:
             let roundWinner = pickRoundWinner(userChoice, computerChoice);
 
@@ -111,13 +111,21 @@ function rockPaperScissors(){
 
         displayFinalWinner(finalWinner);
     
+        //display nothing if the user cancelled instead of entering an option
+        /*if(!userChoice){ 
+            console.clear();
+            console.log("\n\n");
+        }*/
+
         //confirm if they wanna play again
         keepPlaying = confirm("Do you wanna play again?");
     }
+
     console.clear();
     console.log("\n\n");
     console.log("To start the game again, type rockPaperScissors() below!");
 }
+
 console.clear();
 console.log("\n\n");
 console.log("To start the game, type rockPaperScissors() below!");
