@@ -1,4 +1,5 @@
 function generateChoice() {
+
     choiceNumber = Math.floor(Math.random() * 3) + 1; // pick random integer between 1 and 3
     
     choice = (choiceNumber === 1)? "rock": // assign corresponding string value
@@ -6,12 +7,15 @@ function generateChoice() {
     "scissors";
 
     return choice;
+
 }
 
 
 
-function pickWinner(choiceA, choiceB) { //receives user and computer choices, in that order
-    let winner = "no one, it was a tie!";
+function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in that order
+    
+    let winner = "no one, it was a tie!"; // default
+
     if(choiceA === "rock"){
         if (choiceB === "paper"){
             winner = "computer";
@@ -37,9 +41,19 @@ function pickWinner(choiceA, choiceB) { //receives user and computer choices, in
         }
     }
     return winner;
+
 }
 
-function displayWinner(counterA, counterB){ // receives user and computer victory counters, in that order
+function displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories) {
+    console.log("You picked: " + userChoice);
+    console.log("The computer picked: " + computerChoice);
+    console.log("The winner of this round was: " + roundWinner);
+    console.log("User victories: " + userVictories);
+    console.log("Computer victories: " + computerVictories);
+}
+
+
+function displayFinalWinner(counterA, counterB){ //user and computer victory counters, in that order
     let message = (counterA > counterB)? "the user has won!" :
         (counterB > counterA)? "the computer has won!" :
         "nobody wins :("
@@ -59,15 +73,13 @@ while(keepPlaying){
         //prompt for user's choice: 
         let userChoice = prompt("Choose rock, paper or scissors:");
         console.clear();
-        console.log("you picked: " + userChoice);
 
         //make the computer's choice:
         let computerChoice = generateChoice();
-        console.log("the computer picked: " +computerChoice);
  
 
         //choose the round winner:
-        let roundWinner = pickWinner(userChoice, computerChoice);
+        let roundWinner = pickRoundWinner(userChoice, computerChoice);
 
         if (roundWinner === "user") 
             {userVictories++;}
@@ -75,13 +87,11 @@ while(keepPlaying){
             {computerVictories++;}
         
         
-        //outputs this round's victor
-        console.log("The winner of this round was: " + roundWinner);
-        console.log("User victories: " + userVictories);
-        console.log("Computer victories: " + computerVictories);
+        //outputs this round's overview
+        displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
 }
     //outputs final victory
-    winnerMessage = displayWinner(userVictories, computerVictories)
+    winnerMessage = displayFinalWinner(userVictories, computerVictories)
  
     //confirm if they wanna play again
     keepPlaying = confirm("Do you wanna play again?");
