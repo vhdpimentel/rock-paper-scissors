@@ -67,44 +67,47 @@ function pickFinalWinner(counterA, counterB){ //user and computer victory counte
 function displayFinalWinner(finalWinner){
     console.log("\n\n");
     console.log("And the final winner was: " + finalWinner + "!!!");
-    alert("And the final winner was: " + finalWinner + "!!!");
+    //alert("And the final winner was: " + finalWinner + "!!!");
 }
 
+function rockPaperScissors(){
+    let keepPlaying = true; 
+    while(keepPlaying){
 
-let keepPlaying = true; 
-while(keepPlaying){
+        let userVictories = 0;
+        let computerVictories = 0;
 
-    let userVictories = 0;
-    let computerVictories = 0;
+        //goes on for a best of 5
+        while(userVictories < 3 && computerVictories < 3) {
+            //prompt for user's choice: 
+            let userChoice = prompt("Enter rock, paper or scissors: \n\n");
 
-    //goes on for a best of 5
-    while(userVictories < 3 && computerVictories < 3) {
-        //prompt for user's choice: 
-        let userChoice = prompt("Enter rock, paper or scissors: \n\n");
+            console.clear();
 
-        console.clear();
+            //make the computer's choice:
+            let computerChoice = generateChoice();
+    
 
-        //make the computer's choice:
-        let computerChoice = generateChoice();
- 
+            //choose the round winner:
+            let roundWinner = pickRoundWinner(userChoice, computerChoice);
 
-        //choose the round winner:
-        let roundWinner = pickRoundWinner(userChoice, computerChoice);
+            if (roundWinner === "user") 
+                {userVictories++;}
+            else if (roundWinner === "computer") 
+                {computerVictories++;}
+            
+            
+            //outputs this round's overview
+            displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
+    }
+        //outputs final victory
+        finalWinner = pickFinalWinner(userVictories, computerVictories);
 
-        if (roundWinner === "user") 
-            {userVictories++;}
-        else if (roundWinner === "computer") 
-            {computerVictories++;}
-        
-        
-        //outputs this round's overview
-        displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
+        displayFinalWinner(finalWinner);
+    
+        //confirm if they wanna play again
+        keepPlaying = confirm("Do you wanna play again?");
+    }
 }
-    //outputs final victory
-    finalWinner = pickFinalWinner(userVictories, computerVictories);
 
-    displayFinalWinner(finalWinner);
- 
-    //confirm if they wanna play again
-    keepPlaying = confirm("Do you wanna play again?");
-}
+console.log("Type rockPaperScissors() below!");
