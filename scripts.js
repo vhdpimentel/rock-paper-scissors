@@ -1,3 +1,5 @@
+
+
 function generateChoice() {
 
     choiceNumber = Math.floor(Math.random() * 3) + 1; // pick random integer between 1 and 3
@@ -53,12 +55,12 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
 }
 
 
-function displayFinalWinner(counterA, counterB){ //user and computer victory counters, in that order
-    let message = (counterA > counterB)? "the user has won!" :
-        (counterB > counterA)? "the computer has won!" :
-        "nobody wins :("
+function pickFinalWinner(counterA, counterB){ //user and computer victory counters, in that order
+    let finalWinner = (counterA > counterB)? "user" :
+        (counterB > counterA)? "computer" :
+        "nobody :("
     
-    return message;
+    return finalWinner;
 }
 
 
@@ -72,6 +74,7 @@ while(keepPlaying){
     while(userVictories < 3 && computerVictories < 3) {
         //prompt for user's choice: 
         let userChoice = prompt("Choose rock, paper or scissors:");
+
         console.clear();
 
         //make the computer's choice:
@@ -91,7 +94,9 @@ while(keepPlaying){
         displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
 }
     //outputs final victory
-    winnerMessage = displayFinalWinner(userVictories, computerVictories)
+    finalWinner = pickFinalWinner(userVictories, computerVictories)
+
+    console.log("And the final winner was: " + finalWinner + "!!!");
  
     //confirm if they wanna play again
     keepPlaying = confirm("Do you wanna play again?");
