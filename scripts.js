@@ -1,32 +1,34 @@
-/*
-    function pickWinner(choiceA, choiceB) {
-        if choiceA === "rock":
-            and choiceB === "rock":
-                roundWinner = "no one, it was a tie!";
-            and choiceB === "paper":
-                roundWinner = "computer";
-            and choiceB === "scissors":
-                roundWinner = "user";
-        
-        if choiceA === "paper":
-            and choiceB === "rock":
-                roundWinner = "user";
-            and choiceB === "paper":
-                roundWinner = "no one, it was a tie!";
-            and choiceB === "scissors":
-                roundWinner = "computer";
-        
-        if choiceA === "scissors":
-            and choiceB === "rock":
-                roundWinner = "computer";
-            and choiceB === "paper":
-                roundWinner = "user";
-            and choiceB === "scissors":
-                roundWinner = "no one, it was a tie!";
 
+    function pickWinner(choiceA, choiceB) {
+        let winner = "no one, try again!";
+        if(choiceA === "rock"){
+            if (choiceB === "paper"){
+                winner = "computer";
+            }
+            if (choiceB === "scissors"){
+                winner = "user";
+            }
+        }
+        if (choiceA === "paper"){
+            if (choiceB === "rock"){
+                winner = "user";
+            }
+            if (choiceB === "scissors"){
+                winner = "computer";
+            }
+        }
+        if (choiceA === "scissors"){
+            if (choiceB === "rock"){
+                winner = "computer";
+            }
+            if (choiceB === "paper"){
+                winner = "user";
+            }
+        }
+        return winner;
     }
 
-
+/*
     the game will be played for a best of 5
     while no victory counter has reached 3: 
     let userVictories = 0;
