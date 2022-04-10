@@ -14,6 +14,8 @@ function displayInstructions(){
 function getUserChoice() {
     validChoice = false;
     let userChoice = prompt("Enter rock, paper or scissors: \n\n");
+    if(userChoice) {userChoice = userChoice.toLowerCase();}
+    
     while (!validChoice){        
         if(userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors" && userChoice !== null){
             userChoice = prompt("Invalid choice. Enter either rock, paper or scissors: \n\n");
