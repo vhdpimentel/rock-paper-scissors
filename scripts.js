@@ -80,7 +80,9 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
 }
 
 //prints round results on the browser console
-function displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories) {
+function displayRoundResults(userChoice, computerChoice, roundWinner, 
+        userVictories, computerVictories) {
+    
     console.log("\n\n");
 
     console.log("Round results:")
@@ -116,7 +118,6 @@ function displayFinalWinner(finalWinner){
     console.log("\n\n");
     if(finalWinner){
         console.log("And the final winner was the " + finalWinner + "!!!");
-        //alert("And the final winner was: " + finalWinner + "!!!");
     } else console.log("This game was a tie! I guess someone quit early, eh?")
 }
 
@@ -149,14 +150,15 @@ function rockPaperScissors(){
             //choose the round winner:
             let roundWinner = pickRoundWinner(userChoice, computerChoice);
 
-            if (roundWinner === "user") 
-                {userVictories++;}
-            else if (roundWinner === "computer") 
-                {computerVictories++;}
+            if (roundWinner === "user") {
+                userVictories++;
+            } else if (roundWinner === "computer") { 
+                computerVictories++;}
             
             
             //outputs the round's overview
-            displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
+            displayRoundResults(userChoice, computerChoice, roundWinner, userVictories,
+                    computerVictories);
     }
         //outputs final winner
         finalWinner = pickFinalWinner(userVictories, computerVictories);
