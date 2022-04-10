@@ -10,6 +10,7 @@ function displayInstructions(){
     console.log("It's you against the computer. The game goes up to a best of 5!")
 }
 
+//return either "rock", "paper", "scissors" or null
 function getUserChoice() {
     validChoice = false;
     let userChoice = prompt("Enter rock, paper or scissors: \n\n");
@@ -24,6 +25,7 @@ function getUserChoice() {
     return userChoice;
 }
 
+//return either "rock", "paper" or "scissors"
 function generateChoice() {
 
     choiceNumber = Math.floor(Math.random() * 3) + 1; // pick random integer between 1 and 3
@@ -36,6 +38,7 @@ function generateChoice() {
 
 }
 
+//return either "user" or "computer"
 function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in that order
     
     let winner = false; // default
@@ -71,6 +74,7 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
 
 }
 
+//prints round results on the browser console
 function displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories) {
     console.log("\n\n");
 
@@ -93,15 +97,16 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
     console.log("Computer victories: " + computerVictories);
 }
 
-
+//returns either "user", "computer" or null
 function pickFinalWinner(counterA, counterB){ //user and computer victory counters, in that order
     let finalWinner = (counterA > counterB)? "user" :
         (counterB > counterA)? "computer" :
-        false;
+        null;
     
     return finalWinner;
 }
 
+//prints the match winner on the console
 function displayFinalWinner(finalWinner){
     console.log("\n\n");
     if(finalWinner){
