@@ -159,7 +159,7 @@ function rockPaperScissors(){
     
 
         //confirm if they wanna play again
-        keepPlaying = confirm("Do you wanna play again?");
+        keepPlaying = confirm("The match is over. Do you wanna play again?");
 
         //clears screen after game ends
         console.clear();
