@@ -1,3 +1,9 @@
+function displayStartMessage(){
+    console.clear();
+    console.log("\n\n");
+    console.log("To start the game, type rockPaperScissors() below!");
+}
+
 function displayInstructions(){
     console.clear();
     console.log("\n\n");
@@ -19,7 +25,7 @@ function generateChoice() {
 
 function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in that order
     
-    let winner = "no one, it was a tie!"; // default
+    let winner = false; // default
 
     if(choiceA === "rock"){
         if (choiceB === "paper"){
@@ -51,11 +57,14 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
 
 function displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories) {
     console.log("\n\n");
-    console.log("You picked: " + userChoice);
-    console.log("The computer picked: " + computerChoice);
-    console.log("\n\n");
-    console.log("The winner of this round was: " + roundWinner);
-    console.log("\n\n");
+    console.log("Round results:")
+    console.log("You picked " + userChoice);
+    console.log("The computer picked " + computerChoice);
+
+    if (roundWinner){
+        console.log("The " + roundWinner + " won this round!");
+    } else console.log ("This round was a tie!")
+
     console.log("User victories: " + userVictories);
     console.log("Computer victories: " + computerVictories);
 }
@@ -64,15 +73,17 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
 function pickFinalWinner(counterA, counterB){ //user and computer victory counters, in that order
     let finalWinner = (counterA > counterB)? "user" :
         (counterB > counterA)? "computer" :
-        "nobody. I guess you quit early"
+        false;
     
     return finalWinner;
 }
 
 function displayFinalWinner(finalWinner){
     console.log("\n\n");
-    console.log("And the final winner was: " + finalWinner + "!!!");
-    //alert("And the final winner was: " + finalWinner + "!!!");
+    if(finalWinner){
+        console.log("And the final winner was the " + finalWinner + "!!!");
+        //alert("And the final winner was: " + finalWinner + "!!!");
+    } else console.log("This game was a tie! I guess you quit early, eh?")
 }
 
 function rockPaperScissors(){
@@ -80,6 +91,8 @@ function rockPaperScissors(){
     let keepPlaying = true; 
     let userChoice;
     while(keepPlaying && (userChoice !== null)){
+        console.clear();
+        console.log("\n\n")
 
         let userVictories = 0;
         let computerVictories = 0;
@@ -106,26 +119,16 @@ function rockPaperScissors(){
             //outputs this round's overview
             displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
     }
-        //outputs final victory
+        //outputs final winner
         finalWinner = pickFinalWinner(userVictories, computerVictories);
-
         displayFinalWinner(finalWinner);
     
-        //display nothing if the user cancelled instead of entering an option
-        /*if(!userChoice){ 
-            console.clear();
-            console.log("\n\n");
-        }*/
 
         //confirm if they wanna play again
         keepPlaying = confirm("Do you wanna play again?");
     }
 
-    console.clear();
-    console.log("\n\n");
-    console.log("To start the game again, type rockPaperScissors() below!");
+    displayStartMessage();
 }
 
-console.clear();
-console.log("\n\n");
-console.log("To start the game, type rockPaperScissors() below!");
+displayStartMessage();
