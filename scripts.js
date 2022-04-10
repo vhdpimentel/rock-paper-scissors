@@ -5,7 +5,6 @@ function displayStartMessage(){
     console.log("To start the game, type rockPaperScissors() below!");
 }
 
-
 //prints an instruction message on the browser console about how the game will happen
 function displayInstructions(){
     console.clear();
@@ -98,6 +97,8 @@ function displayRoundResults(userChoice, computerChoice, roundWinner,
     if (roundWinner){
         console.log("The " + roundWinner + " won this round!");
     } else console.log ("This round was a tie!")
+
+    console.log("\n\n");
 
     console.log("User victories: " + userVictories);
     
