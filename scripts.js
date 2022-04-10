@@ -1,9 +1,12 @@
+//prints instructions on the browser console about how to start the game
 function displayStartMessage(){
     console.clear();
     console.log("\n\n");
     console.log("To start the game, type rockPaperScissors() below!");
 }
 
+
+//prints an instruction message on the browser console about how the game will happen
 function displayInstructions(){
     console.clear();
     console.log("\n\n");
@@ -15,7 +18,7 @@ function getUserChoice() {
     validChoice = false;
     let userChoice = prompt("Enter rock, paper or scissors: \n\n");
     if(userChoice) {userChoice = userChoice.toLowerCase();}
-    
+
     while (!validChoice){        
         if(userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors" && userChoice !== null){
             userChoice = prompt("Invalid choice. Enter either rock, paper or scissors: \n\n");
