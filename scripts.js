@@ -10,6 +10,19 @@ function displayInstructions(){
     console.log("It's you against the computer. The game goes up to a best of 5!")
 }
 
+function getUserChoice() {
+    validChoice = false;
+    let userChoice = prompt("Enter rock, paper or scissors: \n\n");
+    while (!validChoice){        
+        if(userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors" && userChoice !== null){
+            userChoice = prompt("Invalid choice. Enter either rock, paper or scissors: \n\n");
+        } else {
+            validChoice = true;
+        } 
+    }
+
+    return userChoice;
+}
 
 function generateChoice() {
 
@@ -35,6 +48,7 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
             winner = "user";
         }
     }
+
     if (choiceA === "paper"){
         if (choiceB === "rock"){
             winner = "user";
@@ -43,6 +57,7 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
             winner = "computer";
         }
     }
+
     if (choiceA === "scissors"){
         if (choiceB === "rock"){
             winner = "computer";
@@ -51,14 +66,22 @@ function pickRoundWinner(choiceA, choiceB) { //user and computer choices, in tha
             winner = "user";
         }
     }
+
     return winner;
 
 }
 
 function displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories) {
     console.log("\n\n");
+
     console.log("Round results:")
-    console.log("You picked " + userChoice);
+    
+    if (userChoice === null) {
+        console.log("Did not pick anything on this round" );
+    } else {
+        console.log("You picked " + userChoice);
+    }
+
     console.log("The computer picked " + computerChoice);
 
     if (roundWinner){
@@ -66,6 +89,7 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
     } else console.log ("This round was a tie!")
 
     console.log("User victories: " + userVictories);
+    
     console.log("Computer victories: " + computerVictories);
 }
 
@@ -86,25 +110,31 @@ function displayFinalWinner(finalWinner){
     } else console.log("This game was a tie! I guess you quit early, eh?")
 }
 
+
+
+//main game function
 function rockPaperScissors(){
+    
     displayInstructions();
+
     let keepPlaying = true; 
     let userChoice;
+
     while(keepPlaying && (userChoice !== null)){
+
         console.clear();
         console.log("\n\n")
-
         let userVictories = 0;
         let computerVictories = 0;
 
         //goes on for a best of 5
         while(userVictories < 3 && computerVictories < 3 && (userChoice !== null)) {
-            //prompt for user's choice: 
-            userChoice = prompt("Enter rock, paper or scissors: \n\n");
+             
+            userChoice = getUserChoice();
+            
             console.clear();
 
 
-            //make the computer's choice:
             let computerChoice = generateChoice();
     
             //choose the round winner:
