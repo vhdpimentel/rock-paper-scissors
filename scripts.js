@@ -77,9 +77,9 @@ function displayRoundResults(userChoice, computerChoice, roundWinner, userVictor
     console.log("Round results:")
     
     if (userChoice === null) {
-        console.log("Did not pick anything on this round" );
+        console.log("The user didn't pick anything on this round" );
     } else {
-        console.log("You picked " + userChoice);
+        console.log("The user picked " + userChoice);
     }
 
     console.log("The computer picked " + computerChoice);
@@ -107,7 +107,7 @@ function displayFinalWinner(finalWinner){
     if(finalWinner){
         console.log("And the final winner was the " + finalWinner + "!!!");
         //alert("And the final winner was: " + finalWinner + "!!!");
-    } else console.log("This game was a tie! I guess you quit early, eh?")
+    } else console.log("This game was a tie! I guess someone quit early, eh?")
 }
 
 
@@ -120,18 +120,17 @@ function rockPaperScissors(){
     let keepPlaying = true; 
     let userChoice;
 
-    while(keepPlaying && (userChoice !== null)){
+    while(keepPlaying && (userChoice !== null)){ // until the user quits or cancels the input
 
-        console.clear();
-        console.log("\n\n")
         let userVictories = 0;
         let computerVictories = 0;
 
-        //goes on for a best of 5
+        //goes on for up to a best of 5
         while(userVictories < 3 && computerVictories < 3 && (userChoice !== null)) {
              
             userChoice = getUserChoice();
             
+            //clear screen for new round
             console.clear();
 
 
@@ -146,7 +145,7 @@ function rockPaperScissors(){
                 {computerVictories++;}
             
             
-            //outputs this round's overview
+            //outputs the round's overview
             displayRoundResults(userChoice, computerChoice, roundWinner, userVictories, computerVictories);
     }
         //outputs final winner
@@ -156,6 +155,11 @@ function rockPaperScissors(){
 
         //confirm if they wanna play again
         keepPlaying = confirm("Do you wanna play again?");
+
+        //clears screen after game ends
+        console.clear();
+        console.log("\n\n");
+
     }
 
     displayStartMessage();
